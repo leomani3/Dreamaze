@@ -104,6 +104,11 @@ public class LevelController : MonoBehaviour
             if (LevelProps.transform.GetChild(i).GetComponent<Rigidbody2D>().velocity.y != 0)
             {
                 allObjectGrounded = false;
+                LevelProps.transform.GetChild(i).transform.Find("PlayerKillZone").gameObject.SetActive(true);
+            }
+            else
+            {
+                LevelProps.transform.GetChild(i).transform.Find("PlayerKillZone").gameObject.SetActive(false);
             }
             if (player.GetComponent<Rigidbody2D>().velocity.y != 0)
             {

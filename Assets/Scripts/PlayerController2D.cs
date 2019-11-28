@@ -148,7 +148,6 @@ public class PlayerController2D : MonoBehaviour
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(wallCheckRight.position, 0.01f);
 
-        Debug.Log(colliders.Length);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
