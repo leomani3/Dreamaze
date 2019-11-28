@@ -9,6 +9,7 @@ public class PlayerController2D : MonoBehaviour
     public float wallJumpForce;
     public float gravity;
     public int wallGripDivide;
+    public bool canWallJump = false;
 
     public Transform groundCheck;
     public Transform wallCheckRight;
@@ -24,6 +25,7 @@ public class PlayerController2D : MonoBehaviour
     private bool againstWallRight = false;
     private bool againstWallLeft = false;
     private bool isWallJumping = false;
+    private bool jumping = false;
     private bool lastWallJumpedRight = false;
     private bool lastWallJumpedLeft = false;
 
@@ -43,13 +45,21 @@ public class PlayerController2D : MonoBehaviour
 
         if (!grounded) //si le personnage est en l'air en applique une force vers le bas pour simuler la gravité
         {
-            if ((againstWallLeft || againstWallRight) && rb.velocity.y < 0) //on veut que le personnage tombe moins vite quand il est contre un mur
+            if (((againstWallLeft || againstWallRight) && rb.velocity.y < 0) && canWallJump) //on veut que le personnage tombe moins vite quand il est contre un mur
             {
                 MoveVector.y -= gravity / wallGripDivide * Time.deltaTime;
             }
             else
             {
                 MoveVector.y -= gravity * Time.deltaTime;
+            }
+        }
+        else
+        {
+            if (!jumping)
+            {
+                MoveVector.y = 0;
+                jumping = false;
             }
         }
 
@@ -64,20 +74,24 @@ public class PlayerController2D : MonoBehaviour
         if (grounded)
         {
             MoveVector = new Vector2(0, jumpForce);
+            jumping = true;
         }
         else
         {
-            if (againstWallLeft)
+            if (canWallJump)
             {
-                isWallJumping = true;
-                MoveVector = new Vector2(wallJumpForce, jumpForce);
-                lastWallJumpedLeft = true;
-            }
-            if (againstWallRight)
-            {
-                isWallJumping = true;
-                MoveVector = new Vector2(-wallJumpForce, jumpForce);
-                lastWallJumpedRight = true;
+                if (againstWallLeft)
+                {
+                    isWallJumping = true;
+                    MoveVector = new Vector2(wallJumpForce, jumpForce);
+                    lastWallJumpedLeft = true;
+                }
+                if (againstWallRight)
+                {
+                    isWallJumping = true;
+                    MoveVector = new Vector2(-wallJumpForce, jumpForce);
+                    lastWallJumpedRight = true;
+                }
             }
         }
     }

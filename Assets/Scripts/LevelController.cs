@@ -11,6 +11,7 @@ public class LevelController : MonoBehaviour
     private Vector3 levelCenter;
 
     private bool rotating;
+    private bool allObjectGrounded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +25,13 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !rotating)//clique gauche
+        CheckAllObjectGrounded();
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        if (Input.GetMouseButtonDown(0) && !rotating && allObjectGrounded)//clique gauche
         {
             StartCoroutine(RotateLevel(0));
         }
-        if (Input.GetMouseButtonDown(1) && !rotating)//clique droit
+        if (Input.GetMouseButtonDown(1) && !rotating && allObjectGrounded)//clique droit
         {
             StartCoroutine(RotateLevel(1));
         }
@@ -90,6 +93,22 @@ public class LevelController : MonoBehaviour
         {
             LevelProps.transform.GetChild(i).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             LevelProps.transform.GetChild(i).GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
+    private void CheckAllObjectGrounded()
+    {
+        allObjectGrounded = true;
+        for (int i = 0; i < LevelProps.transform.childCount; i++)
+        {
+            if (LevelProps.transform.GetChild(i).GetComponent<Rigidbody2D>().velocity.y != 0)
+            {
+                allObjectGrounded = false;
+            }
+            if (player.GetComponent<Rigidbody2D>().velocity.y != 0)
+            {
+                allObjectGrounded = false;
+            }
         }
     }
 
