@@ -27,6 +27,7 @@ public class LevelController : MonoBehaviour
     {
         CheckAllObjectGrounded();
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        Debug.Log(allObjectGrounded);
         if (Input.GetMouseButtonDown(0) && !rotating && allObjectGrounded)//clique gauche
         {
             StartCoroutine(RotateLevel(0));
@@ -103,6 +104,7 @@ public class LevelController : MonoBehaviour
         {
             if (LevelProps.transform.GetChild(i).GetComponent<Rigidbody2D>().velocity.y != 0)
             {
+                Debug.Log(LevelProps.transform.GetChild(i).name);
                 allObjectGrounded = false;
                 LevelProps.transform.GetChild(i).transform.Find("PlayerKillZone").gameObject.SetActive(true);
             }
@@ -112,6 +114,7 @@ public class LevelController : MonoBehaviour
             }
             if (player.GetComponent<Rigidbody2D>().velocity.y != 0)
             {
+                Debug.Log("ce fdp de player");
                 allObjectGrounded = false;
             }
         }

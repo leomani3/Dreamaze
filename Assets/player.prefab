@@ -164,6 +164,7 @@ MonoBehaviour:
   wallJumpForce: 3
   gravity: 20
   wallGripDivide: 6
+  canWallJump: 0
   groundCheck: {fileID: 8461992552714969454}
   wallCheckRight: {fileID: 8461992554102421657}
   wallCheckLeft: {fileID: 8461992553081857503}
