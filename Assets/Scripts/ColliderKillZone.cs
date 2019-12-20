@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColliderKillZone : MonoBehaviour
 {
+    public GameObject deadCanvas;
     private void Update()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -12,7 +13,9 @@ public class ColliderKillZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            deadCanvas.SetActive(true);
+            //Time.timeScale = 0;
+            //Destroy(collision.gameObject);
         }
     }
 }

@@ -532,6 +532,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 449595411}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &449595414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1421877428510028775, guid: 7b68ffac9472b8a4c9d4ebf7db852322,
+    type: 3}
+  m_PrefabInstance: {fileID: 449595411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &624620644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3147437965708853437, guid: 7b68ffac9472b8a4c9d4ebf7db852322,
@@ -1431,6 +1437,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 645763350372586568, guid: 9cccd6acb4b6cfb4380b2b8dae442739,
+        type: 3}
+      propertyPath: deadCanvas
+      value: 
+      objectReference: {fileID: 449595414}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cccd6acb4b6cfb4380b2b8dae442739, type: 3}
 --- !u!1 &1995301159

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
-    public static int currentLevelIndex = 0;
+    public static int currentLevelIndex = 1;
 
     public static GameManager Instance { get { return _instance; } }
 
@@ -20,5 +20,6 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
 }

@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ff3960a68c1f1419c52f462a795769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadCanvas: {fileID: 6135161099677991039, guid: 1f48278a79b81a14499505f700480d5e,
+    type: 3}
 --- !u!1 &963754674470667660
 GameObject:
   m_ObjectHideFlags: 0

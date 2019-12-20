@@ -6,15 +6,11 @@ public class PlayerMove : MonoBehaviour
 {
     private float dir;
     public PlayerController2D controller;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("sdfsdfsdf");
         //saut
         if (Input.GetKeyDown(KeyCode.Space))
         {

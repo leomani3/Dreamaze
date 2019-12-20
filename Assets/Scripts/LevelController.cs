@@ -114,7 +114,7 @@ public class LevelController : MonoBehaviour
             }
             if (player.GetComponent<Rigidbody2D>().velocity.y != 0)
             {
-                Debug.Log("ce fdp de player");
+                Debug.Log("Le joueur n'est pas au sol");
                 allObjectGrounded = false;
             }
         }
