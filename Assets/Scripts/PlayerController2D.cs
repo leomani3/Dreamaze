@@ -63,7 +63,7 @@ public class PlayerController2D : MonoBehaviour
             }
         }
 
-        Debug.Log(MoveVector);
+        //Debug.Log(MoveVector);
         rb.velocity = MoveVector;
     }
 
