@@ -10,7 +10,15 @@ public class PlayerEnd : MonoBehaviour
         if (collision.tag == "Player")
         {
             GameManager.currentLevelIndex++;
-            SceneManager.LoadScene(GameManager.currentLevelIndex);
+            if(GameManager.currentLevelIndex > GameManager.nbLevel)
+            {
+                GameManager.currentLevelIndex = 1;
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(GameManager.currentLevelIndex);
+            }
         }
     }
 }
