@@ -76,6 +76,7 @@ public class PlayerController2D : MonoBehaviour
         {
             MoveVector = new Vector2(0, jumpForce);
             jumping = true;
+            GetComponent<AudioSource>().Play();
         }
         else
         {
@@ -93,6 +94,7 @@ public class PlayerController2D : MonoBehaviour
                     MoveVector = new Vector2(-wallJumpForce, jumpForce);
                     lastWallJumpedRight = true;
                 }
+                GetComponent<AudioSource>().Play();
             }
         }
     }

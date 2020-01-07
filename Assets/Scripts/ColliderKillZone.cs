@@ -13,6 +13,7 @@ public class ColliderKillZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GetComponent<AudioSource>().Play();
             deadCanvas.SetActive(true);
             //Time.timeScale = 0;
             //Destroy(collision.gameObject);
